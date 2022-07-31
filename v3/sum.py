@@ -6,8 +6,7 @@ from model import *
 from allfunction import *
 from input_config import *
 from input_data import *
-import sum as sum
-
+# def up_
 def run_netlogo():
     netlogo_home="C:/Program Files/NetLogo 6.1.1"
     nl4py.initialize(netlogo_home)
@@ -21,30 +20,28 @@ def run_netlogo():
     return n
 # try :
 if 1:
-    time_now=0
+    time_now=1
     in_v = ''
-    tick = 0
+    tick = 1
     n=run_netlogo()
     configuration_initiale(n)
 
     while in_v != 'q':
         while tick<= max_t_sum:
             time.sleep(speed_sum)
+            print("***********  ",time_now,"  ********")
+
+            
             tick+=1
             time_now+=1
-            # for rec in list_product:
-            #     rec.update(n,n_tache,time_now)
+            for rec in list_worker:
+                rec.update(n)
             for rec in list_workstation:
                 rec.update(n,n_tache,time_now)
-            for rec in list_workstation:
-                rec.update2(n,n_tache,time_now)
+            pass
+
+ 
             
-            # pass
-            # list_workstation[1].update(n,n_tache,time_now)
-            # for rec in list_worker:
-            #     rec.update(n)
-            
-            print("***********  ",time_now,"  ********")
             pass
         n.close_model()
         in_v="q"
@@ -54,3 +51,15 @@ if 1:
 #    error_string = str(error)
 #    print(error_string)
 #    in_v = input("in_v , or enter 'q': ")
+# def main():
+#     print('Total = ', total)
+#     func1()
+#     print('Total = ', total)
+#     func()
+#     print('Total = ', total)
+#     func2()
+#     print('Total = ', total)
+#     func3()
+#     print('Total = ', total)
+# if __name__ == '__main__':
+#     main()
